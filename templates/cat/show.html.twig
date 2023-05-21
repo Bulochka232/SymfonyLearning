@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cat{% endblock %}
+
+{% block body %}
+    <h1>Cat</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cat.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ cat.name }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ cat.age }}</td>
+            </tr>
+            <tr>
+                <th>Color</th>
+                <td>{{ cat.color }}</td>
+            </tr>
+            <tr>
+                <th>Disease</th>
+                <td>{{ cat.disease }}</td>
+            </tr>
+            <tr>
+                <th>IsShot</th>
+                <td>{{ cat.isShot ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ cat.date ? cat.date|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_cat_index') }}">back to list</a>
+
+    <a href="{{ path('app_cat_edit', {'id': cat.id}) }}">edit</a>
+
+    {{ include('cat/_delete_form.html.twig') }}
+{% endblock %}
